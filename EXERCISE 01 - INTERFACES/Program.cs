@@ -7,7 +7,6 @@ namespace EXERCISE_01___INTERFACES {
     ///////////////////////////////////////////////////////////////////////////////////////////
     class Program {
         static void Main(string[] args) {
-
             Console.WriteLine("Enter rental data");
             Console.WriteLine("Car model: ");
             string model = Console.ReadLine();
@@ -22,12 +21,11 @@ namespace EXERCISE_01___INTERFACES {
             int day = int.Parse(Console.ReadLine());
 
             CarRental carRental = new CarRental(start, finish, new Vehicle(model));
-            RentalService rentalService = new RentalService(hour, day);
+            RentalService rentalService = new RentalService(hour, day, new BrazilTaxService());
 
             rentalService.ProcessInvoice(carRental);
             Console.WriteLine("INVOICE: ");
             Console.WriteLine(carRental.Invoice);
-
         }
     }
     ////////////////////////////////////////////////////////////////////////////////////////////
